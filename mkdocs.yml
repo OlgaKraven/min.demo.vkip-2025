@@ -1,0 +1,50 @@
+site_name: Подготовка к демоэкзамену ВКИП (БУ)
+
+use_directory_urls: false
+
+theme:
+  name: material
+  logo: assets/icons/logo.png
+  favicon: assets/icons/logo.png
+  language: ru
+  features:
+    - content.code.copy
+    - content.image.zoom
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+
+plugins:
+  - glightbox
+  - search
+
+nav:
+  - Главная: index.md
+  - Модуль 1. Обработка и документирование обращений:
+    - Описание задания: module1/index.md
+    - Пример решения: module1/example_solution.md
+  - Модуль 2. Развёртывание СУБД и администрирование:
+    - Описание задания: module2/index.md
+    - Пример решения: module2/example_solution.md
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.tasklist
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - assets/js/mermaid-init.js
+
+extra_css:
+  - assets/stylesheets/extra.css
