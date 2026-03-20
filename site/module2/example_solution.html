@@ -509,10 +509,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-heidisql" class="md-nav__link">
+  <a href="#22-dbeaver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2. Установка HeidiSQL
+        2.2. Установка DBeaver
       
     </span>
   </a>
@@ -692,10 +692,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#heidisql" class="md-nav__link">
+  <a href="#dbeaver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Через HeidiSQL
+        Через DBeaver
       
     </span>
   </a>
@@ -878,10 +878,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-heidisql" class="md-nav__link">
+  <a href="#22-dbeaver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2. Установка HeidiSQL
+        2.2. Установка DBeaver
       
     </span>
   </a>
@@ -1061,10 +1061,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#heidisql" class="md-nav__link">
+  <a href="#dbeaver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Через HeidiSQL
+        Через DBeaver
       
     </span>
   </a>
@@ -1190,7 +1190,7 @@
 <h1 id="2">Модуль 2. Пример решения</h1>
 <div class="admonition info">
 <p class="admonition-title">Стек</p>
-<p>Пример выполнен на <strong>MySQL 8.x</strong> + <strong>HeidiSQL</strong> (GUI) + <strong>DBeaver</strong> (внешний клиент). Операционная система — Windows 10/11.</p>
+<p>Пример выполнен на <strong>MySQL 8.x</strong> + <strong>DBeaver</strong> (GUI и внешний клиент). Операционная система — Windows 10/11.</p>
 </div>
 <h2 id="1">1. Первый коммит</h2>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
@@ -1219,17 +1219,19 @@ git<span class="w"> </span>push
 </li>
 <li>Запустите установку.</li>
 </ol>
-<h3 id="22-heidisql">2.2. Установка HeidiSQL</h3>
+<h3 id="22-dbeaver">2.2. Установка DBeaver</h3>
 <ol>
-<li>Скачайте с <a href="https://www.heidisql.com/download.php">heidisql.com/download.php</a>.</li>
+<li>Скачайте с <a href="https://dbeaver.io/download/">dbeaver.io/download</a> — Community Edition.</li>
 <li>Установите, запустите.</li>
-<li>Создайте новое подключение:<ul>
+<li><code>Database → New Database Connection</code> → выберите <strong>MySQL</strong>.</li>
+<li>Заполните:<ul>
 <li>Host: <code>127.0.0.1</code></li>
 <li>Port: <code>3306</code></li>
-<li>User: <code>root</code></li>
+<li>Username: <code>root</code></li>
 <li>Password: ваш пароль root</li>
 </ul>
 </li>
+<li>При первом подключении DBeaver предложит скачать драйвер MySQL — нажмите <strong>Download</strong>.</li>
 </ol>
 <h3 id="23">2.3. Параметры подключения (зафиксировать в отчёт)</h3>
 <table>
@@ -1268,7 +1270,7 @@ git<span class="w"> </span>push
 </table>
 <hr>
 <h2 id="3">3. Создание БД, пользователей и таблицы</h2>
-<p>Выполняйте SQL-запросы в HeidiSQL (вкладка «Запрос») или в командной строке MySQL.</p>
+<p>Выполняйте SQL-запросы в DBeaver (SQL Editor → New SQL Script) или в командной строке MySQL.</p>
 <h3 id="31">3.1. Создание базы данных</h3>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">corpdata_01</span>
 <span class="w">  </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8mb4</span>
@@ -1346,7 +1348,7 @@ git<span class="w"> </span>push
 </code></pre></div>
 <p>Скриншот ошибки — приложить к отчёту.</p>
 <h3 id="44-root">4.4. Добавление тестовых данных (через root)</h3>
-<p>Перед проверкой добавьте несколько строк через HeidiSQL от имени root:</p>
+<p>Перед проверкой добавьте несколько строк через DBeaver от имени root:</p>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">reg_date</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
 <span class="w">    </span><span class="p">(</span><span class="s1">'Иванов Иван'</span><span class="p">,</span><span class="w">  </span><span class="s1">'ivanov@corp.ru'</span><span class="p">,</span><span class="w">  </span><span class="s1">'2025-01-15'</span><span class="p">),</span>
 <span class="w">    </span><span class="p">(</span><span class="s1">'Петрова Анна'</span><span class="p">,</span><span class="w"> </span><span class="s1">'petrova@corp.ru'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2025-03-22'</span><span class="p">),</span>
@@ -1358,11 +1360,11 @@ git<span class="w"> </span>push
 <div class="highlight"><pre><span></span><code>mysqldump -u root -p corpdata_01 &gt; C:\corpdata_01_dump.sql
 </code></pre></div>
 <p>Введите пароль root при запросе.</p>
-<h3 id="heidisql">Через HeidiSQL</h3>
+<h3 id="dbeaver">Через DBeaver</h3>
 <ol>
-<li>ПКМ на базе <code>corpdata_01</code> → <strong>Export database as SQL</strong>.</li>
-<li>Выберите: «Structure and data» → <strong>Export</strong>.</li>
-<li>Сохраните файл <code>corpdata_01_dump.sql</code>.</li>
+<li>ПКМ на базе <code>corpdata_01</code> → <strong>Tools → Dump database</strong>.</li>
+<li>Выберите таблицы → укажите путь к файлу <code>corpdata_01_dump.sql</code>.</li>
+<li>Нажмите <strong>Start</strong>.</li>
 </ol>
 <h3 id="_1">Фрагмент дампа (для отчёта)</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">-- MySQL dump 8.0</span>
@@ -1436,7 +1438,7 @@ icacls "%USERPROFILE%\Desktop\sql_reports_01" /grant "client03:(OI)(CI)R"
 
 3. Скриншоты
    [скриншот 1 — установка MySQL]
-   [скриншот 2 — создание БД в HeidiSQL]
+   [скриншот 2 — создание БД в DBeaver]
    [скриншот 3 — создание таблицы]
    [скриншот 4 — назначение прав]
    [скриншот 5 — подключение через DBeaver]
